@@ -38,10 +38,9 @@ $str = '
 preg_match_all("/-?\d+\s-?\d+\r\n/", $str, $matches);
 
 foreach($matches[0] as $val){
-    #echo $val.': (round) ->';
     $split = explode(' ', $val);
     array_walk($split, 'int');
-    echo round($split[0]/$split[1]).' ';
+    echo min($split).' ';
 };
 
 function int(&$value){$value = (int)$value;};
